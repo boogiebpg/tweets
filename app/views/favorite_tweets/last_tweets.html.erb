@@ -1,0 +1,24 @@
+<h1>
+	Last @ciklum tweets
+</h1>
+
+<% content_for :page_links do %>
+  <%= link_to "See favorite tweets", favorite_tweets_url %>
+<% end %>
+
+<div class="centered">
+	<%= link_to "Refresh", "#new", :id => "new_tweets_link" %>
+</div>
+
+<table class="main" id="tweets_table">
+	<tr>
+		<th>Time</th>
+		<th>Tweet</th>
+		<th>Favorite</th>
+	</tr>
+	<%= render "rows" %>
+</table>
+
+<div class="centered">
+	<%= link_to "Get older tweets", "#old", :id => "old_tweets_link" %>
+</div>

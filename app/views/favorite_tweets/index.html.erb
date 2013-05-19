@@ -1,0 +1,28 @@
+<h1>
+	Favorite @ciklum tweets
+</h1>
+
+<% content_for :page_links do %>
+  <%= link_to "See last tweets", root_url %>
+<% end %>
+
+<table class="main">
+	<tr>
+		<th>Time</th>
+		<th>Tweet</th>
+		<th>Remove</th>
+	</tr>
+	<% @posts.each do |post|%>
+		<tr class="favorite_remove" id="<%= post[:tweet_id] %>">
+			<td>
+				<%= post.tweet_time.strftime("%d.%m.%Y %R") %>
+			</td>
+			<td>
+				<%= post.tweet_text %>
+			</td>
+			<td>
+				<div><%= link_to "Remove", "#remove" %></div>
+			</td>
+		</tr>
+	<% end %>
+</table>
