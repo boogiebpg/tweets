@@ -15,12 +15,11 @@ test: &test
   socket: /var/run/mysqld/mysqld.sock
 
 production:
-  adapter: mysql2
+  adapter: pg
   encoding: utf8
   database: tweets_production
   username: root
   password:
-  socket: /var/run/mysqld/mysqld.sock
 
 cucumber:
   <<: *test

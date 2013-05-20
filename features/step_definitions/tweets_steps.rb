@@ -23,6 +23,7 @@ When(/^click "(.*?)" link$/) do |link_text|
 end
 
 Then(/^I should see "(.*?)"$/) do |text|
+	print Capybara.driver.inspect
   page.should have_content text
 end
 
