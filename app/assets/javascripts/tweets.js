@@ -3,7 +3,7 @@ $(document).ready(function () {
 	function favorite_add() {
 		var tweet_id = $(this).attr("id");
 	  	$.ajax({
-		    'url' : 'http://localhost:3000/favorite_tweets',
+		    'url' : '/favorite_tweets',
 		    'type' : 'POST',
 		    'data' : {tweet_id: tweet_id},
 		    'success' : function(data) {
@@ -15,7 +15,7 @@ $(document).ready(function () {
  	function favorite_remove() {
 		var tweet_id = $(this).attr("id");
 	  	$.ajax({
-		    'url' : 'http://localhost:3000/favorite_tweets',
+		    'url' : '/favorite_tweets',
 		    'type' : 'POST',
 		    'data' : {tweet_id: tweet_id, remove: true},
 		    'success' : function(data) {
@@ -26,7 +26,7 @@ $(document).ready(function () {
 
  	function old_tweets() {
 	  	$.ajax({
-		    'url' : 'http://localhost:3000/favorite_tweets/old_tweets/' + $('#tweets_table tr:last').find('div').attr('id'),
+		    'url' : '/favorite_tweets/old_tweets/' + $('#tweets_table tr:last').find('div').attr('id'),
 		    'type' : 'GET',
 		    'success' : function(data) {
 		    	$('#tweets_table tr:last').after(data);
@@ -36,7 +36,7 @@ $(document).ready(function () {
 
  	function new_tweets() {
 	  	$.ajax({
-		    'url' : 'http://localhost:3000/favorite_tweets/new_tweets/' + $('#tweets_table tr:first').next('tr').find('div').attr('id'),
+		    'url' : '/favorite_tweets/new_tweets/' + $('#tweets_table tr:first').next('tr').find('div').attr('id'),
 		    'type' : 'GET',
 		    'success' : function(data) {
 		    	$('#tweets_table tr:first').next('tr').before(data);
