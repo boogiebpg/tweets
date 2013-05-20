@@ -29,7 +29,7 @@ end
 # not working yet.....
 
 Then(/^I shoul have ([0-9]+) favorite tweet$/) do |num|
-  #FavoriteTweet.count.should == num
+  FavoriteTweet.count.should == num
 end
 
 Then(/^I should see ([0-9]+) tweets$/) do |count|
