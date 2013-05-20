@@ -15,9 +15,8 @@ $(document).ready(function () {
  	function favorite_remove() {
 		var tweet_id = $(this).attr("id");
 	  	$.ajax({
-		    'url' : '/favorite_tweets',
-		    'type' : 'POST',
-		    'data' : {tweet_id: tweet_id, remove: true},
+		    'url' : '/favorite_tweets/' + tweet_id,
+		    'type' : 'DELETE',
 		    'success' : function(data) {
 		    	$('#' + tweet_id).remove();
 		    }
@@ -48,5 +47,7 @@ $(document).ready(function () {
 	$("tr.favorite_remove").click(favorite_remove);
 	$("a#old_tweets_link").click(old_tweets);
 	$("a#new_tweets_link").click(new_tweets);
-	setInterval(new_tweets, 60000);
+	if ($('#tweets_table').length != 0) {
+		setInterval(new_tweets, 60000);
+	}
 });

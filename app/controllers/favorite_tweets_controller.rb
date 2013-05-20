@@ -22,13 +22,14 @@ class FavoriteTweetsController < ActionController::Base
 	end
 
 	def create
-		if params[:remove] == nil
-			tweet = Twitter.status(params[:tweet_id])
-			FavoriteTweet.create :tweet_id => params[:tweet_id], :tweet_text => tweet.text, :tweet_time => tweet.created_at
-		else
-			tweet = FavoriteTweet.find_by_tweet_id params[:tweet_id]
-			tweet.destroy
-		end
+		tweet = Twitter.status(params[:tweet_id])
+		FavoriteTweet.create :tweet_id => params[:tweet_id], :tweet_text => tweet.text, :tweet_time => tweet.created_at
+		render :nothing => true
+	end
+
+	def destroy
+		tweet = FavoriteTweet.find_by_tweet_id params[:id]
+		tweet.destroy
 		render :nothing => true
 	end
 
