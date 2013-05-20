@@ -23,6 +23,15 @@ end
 
 gem 'jquery-rails'
 
+group :test do
+  gem 'cucumber-rails', :require => false
+  # database_cleaner is not required, but highly recommended
+  gem 'database_cleaner'
+  gem 'rspec'
+  gem "capybara-webkit", git: 'git://github.com/thoughtbot/capybara-webkit.git'
+  # gem 'selenium-webdriver'
+end
+
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
